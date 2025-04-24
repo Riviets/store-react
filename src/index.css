@@ -1,1 +1,13 @@
 @import "tailwindcss";
+
+@layer utilities {
+  .container {
+    @apply max-w-[1220px] px-[10px] mx-auto;
+  }
+  .section-padding {
+    @apply py-5 md:py-15;
+  }
+  .flex-center {
+    @apply flex items-center justify-center;
+  }
+}

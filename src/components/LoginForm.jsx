@@ -5,6 +5,7 @@ import { z } from "zod";
 import { eyeClosedIcon, eyeIcon } from "../constants/icons";
 import { useEffect, useState } from "react";
 import { authService } from "../services/api/authService";
+import { useNavigate } from "react-router-dom";
 
 const validationSchema = z.object({
   username: z.string().min(4).max(16),
@@ -20,14 +21,22 @@ const LoginForm = () => {
   } = useForm({ resolver: zodResolver(validationSchema) });
 
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
+  const [isAuthError, setIsAuthError] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     setFocus("username");
   }, []);
 
   const onSubmit = async (data) => {
-    const response = await authService.login(data);
-    localStorage.setItem("accessToken", response.token);
+    try {
+      setIsAuthError(false);
+      const response = await authService.login(data);
+      localStorage.setItem("accessToken", response.token);
+      navigate("/");
+    } catch (error) {
+      setIsAuthError(true);
+    }
   };
 
   return (
@@ -67,12 +76,15 @@ const LoginForm = () => {
           <p className="text-red-500">{errors.password?.message}</p>
         </div>
       </div>
+      <div className="min-h-[1.5rem] text-sm">
+        {isAuthError && <p className="text-red-500 text0sm">Login failed</p>}
+      </div>
       <Button
         text={"Submit"}
         type={"submit"}
         isDisabled={isSubmitting}
         className={
-          "mt-5 w-full hover:bg-zinc-700 hover:text-white disabled:bg-gray-600 disabled:text-white"
+          "w-full hover:bg-zinc-700 hover:text-white disabled:bg-gray-600 disabled:text-white"
         }
       />
     </form>

@@ -1,8 +1,13 @@
 @import "tailwindcss";
 
+body {
+  @apply bg-zinc-800;
+}
+
 @theme {
   --color-green-450: #05ed81;
   --color-green-550: #02c46a;
+  --color-white-50: #f2f2f0;
 }
 
 @layer utilities {
@@ -26,5 +31,8 @@
   }
   .error-message {
     @apply min-h-[1.5rem] text-sm text-red-500;
+  }
+  .button-hover {
+    @apply hover:bg-zinc-700 hover:text-white;
   }
 }

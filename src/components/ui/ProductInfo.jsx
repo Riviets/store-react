@@ -3,7 +3,7 @@ import Button from "./Button";
 
 const ProductInfo = ({ productData }) => {
   return (
-    <div className="flex justify-center md:justify-between items-center gap-10 flex-wrap md:flex-nowrap">
+    <div className="flex justify-center md:justify-between items-center gap-10 flex-wrap md:flex-nowrap bg-white p-5 rounded-md min-h-[65vh]">
       <div className="w-full px-20 md:px-0 md:basis-1/3 flex-center">
         <img src={productData.image} alt={productData.title} />
       </div>

@@ -22,7 +22,7 @@ const ProductPage = () => {
       <section className="container section-padding">
         <Button
           text={"Back"}
-          className={"mb-15 hover:bg-zinc-700 hover:text-white"}
+          className={"mb-15 button-hover bg-white-50"}
           onClick={() => navigate(-1)}
         />
         <ProductInfo productData={productData} />

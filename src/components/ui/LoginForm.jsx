@@ -58,7 +58,7 @@ const LoginForm = () => {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="flex flex-col gap-4 items-center border-1 border-gray-600 shadow-xl px-6 py-10 rounded-md"
+      className="flex flex-col gap-4 items-center border-1 border-gray-600 shadow-xl px-6 py-10 rounded-md bg-white"
     >
       <div className="space-y-2">
         <input
@@ -95,7 +95,7 @@ const LoginForm = () => {
         type={"submit"}
         isDisabled={isSubmitting}
         className={
-          "w-full hover:bg-zinc-700 hover:text-white disabled:bg-gray-600 disabled:text-white"
+          "w-full button-hover disabled:bg-gray-600 disabled:text-white"
         }
       />
     </form>

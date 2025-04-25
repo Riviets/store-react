@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { formatTitle } from "../utils";
+import { formatTitle } from "../../utils";
 const ProductCard = ({ product }) => {
   return (
     <Link

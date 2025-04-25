@@ -1,5 +1,5 @@
-import { starIcon } from "../constants/icons";
-import Button from "./ui/Button";
+import { starIcon } from "../../constants/icons";
+import Button from "./Button";
 
 const ProductInfo = ({ productData }) => {
   return (

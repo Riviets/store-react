@@ -1,7 +1,7 @@
 import { useQuery, useQueryClient } from "@tanstack/react-query";
-import ProductCard from "../components/ProductCard";
+import ProductCard from "../components/ui/ProductCard";
 import { productsService } from "../services/api/productService";
-import Spinner from "../components/Spinner";
+import Spinner from "../components/ui/Spinner";
 import { useState } from "react";
 import WithLoader from "../components/WithLoader";
 
@@ -12,7 +12,7 @@ const Products = () => {
   });
 
   return (
-    <WithLoader isLoading={isLoading}>
+    <WithLoader isLoading={isLoading} addHeader={true}>
       <section className="container section-padding">
         <div className="grid-3-cols">
           {products?.map((product) => (

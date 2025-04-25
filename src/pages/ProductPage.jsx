@@ -1,10 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
 import { useNavigate, useParams } from "react-router-dom";
 import { productsService } from "../services/api/productService";
-import Spinner from "../components/Spinner";
+import Spinner from "../components/ui/Spinner";
 import { useEffect } from "react";
 import WithLoader from "../components/WithLoader";
-import ProductInfo from "../components/ProductInfo";
+import ProductInfo from "../components/ui/ProductInfo";
 import Button from "../components/ui/Button";
 
 const ProductPage = () => {
@@ -18,7 +18,7 @@ const ProductPage = () => {
   });
 
   return (
-    <WithLoader isLoading={isLoading}>
+    <WithLoader isLoading={isLoading} addHeader={true}>
       <section className="container section-padding">
         <Button
           text={"Back"}

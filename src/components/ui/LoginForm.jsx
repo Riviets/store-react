@@ -1,11 +1,13 @@
 import { useForm } from "react-hook-form";
-import Button from "../components/ui/Button";
+import Button from "./Button";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { eyeClosedIcon, eyeIcon } from "../constants/icons";
+import { eyeClosedIcon, eyeIcon } from "../../constants/icons";
 import { useEffect, useState } from "react";
-import { authService } from "../services/api/authService";
+import { authService } from "../../services/api/authService";
 import { useNavigate } from "react-router-dom";
+import { useQuery } from "@tanstack/react-query";
+import { usersService } from "../../services/api/usersService";
 
 const validationSchema = z.object({
   username: z.string().min(4).max(16),
@@ -20,6 +22,11 @@ const LoginForm = () => {
     formState: { errors, isSubmitting },
   } = useForm({ resolver: zodResolver(validationSchema) });
 
+  const { data: users, isLoading } = useQuery({
+    queryKey: ["users"],
+    queryFn: usersService.getAllUsers,
+  });
+
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
   const [isAuthError, setIsAuthError] = useState(false);
   const navigate = useNavigate();
@@ -28,15 +35,24 @@ const LoginForm = () => {
     setFocus("username");
   }, []);
 
-  const onSubmit = async (data) => {
+  const authenticateUser = async (userData) => {
     try {
       setIsAuthError(false);
-      const response = await authService.login(data);
-      localStorage.setItem("accessToken", response.token);
+      const { token } = await authService.login(userData);
+      const currentUser = users.filter(
+        (user) => user.username === userData.username
+      );
+      const userId = currentUser[0].id;
+      localStorage.setItem("accessToken", token);
+      localStorage.setItem("userId", userId);
       navigate("/");
     } catch (error) {
       setIsAuthError(true);
     }
+  };
+
+  const onSubmit = async (data) => {
+    authenticateUser(data);
   };
 
   return (
@@ -51,9 +67,7 @@ const LoginForm = () => {
           placeholder="Username"
           className="input"
         />
-        <div className="min-h-[1.5rem] text-sm">
-          <p className="text-red-500">{errors.username?.message}</p>
-        </div>
+        <p className="error-message">{errors.username?.message}</p>
       </div>
       <div className="space-y-2">
         <div className="relative">
@@ -72,12 +86,9 @@ const LoginForm = () => {
             {isPasswordVisible ? eyeIcon : eyeClosedIcon}
           </div>
         </div>
-        <div className="min-h-[1.5rem] text-sm">
-          <p className="text-red-500">{errors.password?.message}</p>
-        </div>
-      </div>
-      <div className="min-h-[1.5rem] text-sm">
-        {isAuthError && <p className="text-red-500 text0sm">Login failed</p>}
+        <p className="error-message">
+          {errors.password?.message || (isAuthError && "Login failed")}
+        </p>
       </div>
       <Button
         text={"Submit"}

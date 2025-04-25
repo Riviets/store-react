@@ -9,4 +9,9 @@ export const authService = {
     });
     return response.data;
   },
+  logout: () => {
+    localStorage.removeItem("accessToken");
+    localStorage.removeItem("userId");
+    window.location.reload();
+  },
 };

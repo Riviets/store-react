@@ -24,4 +24,7 @@
   .input:focus {
     @apply outline-2;
   }
+  .error-message {
+    @apply min-h-[1.5rem] text-sm text-red-500;
+  }
 }

@@ -24,7 +24,9 @@ const ProductInfo = ({ productData }) => {
         <Button
           text={"Add to cart"}
           onClick={() => console.log("Adding to cart")}
-          className={"bg-green-450 hover:bg-green-550 text-white"}
+          className={
+            "bg-green-450 hover:bg-green-550 text-white border-2 border-green-700"
+          }
         />
       </div>
     </div>

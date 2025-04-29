@@ -1,6 +1,6 @@
 import React from "react";
-import { closeIcon } from "../constants/icons";
-import Button from "./ui/Button";
+import { closeIcon } from "../../constants/icons";
+import Button from "./Button";
 
 const Modal = ({
   text,

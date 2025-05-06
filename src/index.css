@@ -7,7 +7,7 @@ body {
 @theme {
   --color-green-450: #05ed81;
   --color-green-550: #02c46a;
-  --color-white-50: #f2f2f0;
+  --color-white-50: #ebebe8;
 }
 
 @layer utilities {
@@ -15,7 +15,7 @@ body {
     @apply max-w-[1220px] px-5 md:px-10 mx-auto;
   }
   .section-padding {
-    @apply py-5 md:py-15;
+    @apply pb-5 md:pb-15 pt-25 md:pt-40;
   }
   .flex-center {
     @apply flex items-center justify-center;
@@ -34,5 +34,20 @@ body {
   }
   .button-hover {
     @apply hover:bg-zinc-700 hover:text-white;
+  }
+  .navbar {
+    @apply fixed top-0 left-0 right-0 z-10  transition-all duration-300 ease-in-out;
+    &.scrolled {
+      @apply bg-zinc-900 py-4 md:py-6;
+    }
+    &.not-scrolled {
+      @apply bg-transparent py-8 md:py-12;
+    }
+  }
+  .navbar-link {
+    @apply text-white-50 hover:text-white font-thin tracking-wider text-lg md:text-2xl transition-all duration-300 relative;
+  }
+  .underline {
+    @apply w-0 h-0.5 bg-white absolute -bottom-2 transition-all duration-300 group-hover:w-full;
   }
 }

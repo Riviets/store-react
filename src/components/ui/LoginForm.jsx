@@ -2,12 +2,13 @@ import { useForm } from "react-hook-form";
 import Button from "./Button";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { eyeClosedIcon, eyeIcon } from "../../constants/icons";
 import { useEffect, useState } from "react";
 import { authService } from "../../services/api/authService";
 import { useNavigate } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { usersService } from "../../services/api/usersService";
+import { eyeClosedIcon } from "../../assets/icons/eyeClosed";
+import { eyeIcon } from "../../assets/icons/eyeIcon";
 
 const validationSchema = z.object({
   username: z.string().min(4).max(16),
@@ -65,6 +66,7 @@ const LoginForm = () => {
           {...register("username")}
           type="text"
           placeholder="Username"
+          value={"johnd"}
           className="input"
         />
         <p className="error-message">{errors.username?.message}</p>
@@ -75,6 +77,7 @@ const LoginForm = () => {
             {...register("password")}
             type={`${isPasswordVisible ? "text" : "password"}`}
             placeholder="Password"
+            value={"m38rmF$"}
             className="input"
           />
           <div

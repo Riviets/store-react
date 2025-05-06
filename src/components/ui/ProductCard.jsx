@@ -4,7 +4,7 @@ const ProductCard = ({ product }) => {
   return (
     <Link
       to={`/product-page/${product.id}`}
-      className="border-1 border-black rounded-md cursor-pointer shadow-lg hover:-translate-y-1 transition duration-300 bg-white"
+      className="product-card border-1 border-black rounded-md cursor-pointer shadow-lg hover:-translate-y-1 transition duration-300 bg-white"
     >
       <div className="flex-center mb-5 border-b-2 py-5">
         <img src={product.image} alt={product.title} className="size-40" />

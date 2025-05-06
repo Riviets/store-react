@@ -1,12 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
 import { useNavigate, useParams } from "react-router-dom";
 import { productsService } from "../services/api/productService";
-import Spinner from "../components/ui/Spinner";
-import { useEffect } from "react";
 import WithLoader from "../components/WithLoader";
 import ProductInfo from "../components/ui/ProductInfo";
 import Button from "../components/ui/Button";
-
 const ProductPage = () => {
   const params = useParams();
   const { productId } = params;
@@ -22,7 +19,7 @@ const ProductPage = () => {
       <section className="container section-padding">
         <Button
           text={"Back"}
-          className={"mb-15 button-hover bg-white-50"}
+          className={"mb-5 md:mb-15 button-hover bg-white-50"}
           onClick={() => navigate(-1)}
         />
         <ProductInfo productData={productData} />

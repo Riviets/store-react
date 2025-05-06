@@ -1,9 +1,8 @@
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import ProductCard from "../components/ui/ProductCard";
 import { productsService } from "../services/api/productService";
-import Spinner from "../components/ui/Spinner";
-import { useState } from "react";
 import WithLoader from "../components/WithLoader";
+import AnimatedTitle from "../components/ui/AnimatedTitle";
 
 const Products = () => {
   const { data: products, isLoading } = useQuery({
@@ -14,7 +13,8 @@ const Products = () => {
   return (
     <WithLoader isLoading={isLoading} addHeader={true}>
       <section className="container section-padding">
-        <div className="grid-3-cols">
+        <AnimatedTitle className={"mb-10 md:mb-20"}>Products</AnimatedTitle>
+        <div className="products-list grid-3-cols">
           {products?.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}

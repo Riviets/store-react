@@ -1,5 +1,5 @@
 import React from "react";
-import { formatString } from "../../constants";
+import { formatString } from "../../utils/index";
 
 export const Address = ({ address }) => {
   return (

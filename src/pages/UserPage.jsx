@@ -4,7 +4,6 @@ import WithLoader from "../components/WithLoader";
 import { useQuery } from "@tanstack/react-query";
 import { usersService } from "../services/api/usersService";
 import UserData from "../components/ui/UserData";
-import { useEffect } from "react";
 
 const UserPage = () => {
   const navigate = useNavigate();
@@ -19,7 +18,7 @@ const UserPage = () => {
       <section className="container section-padding">
         <Button
           text={"Back"}
-          className={"button-hover bg-white-50 mb-10"}
+          className={"button-hover bg-white-50 mb-5 md:mb-10"}
           onClick={() => navigate(-1)}
         />
         <UserData userData={currentUser} />

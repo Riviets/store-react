@@ -1,9 +1,11 @@
-import { starIcon } from "../../constants/icons";
 import Button from "./Button";
+import { starIcon } from "../../assets/icons/star";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 
 const ProductInfo = ({ productData }) => {
   return (
-    <div className="flex justify-center md:justify-between items-center gap-10 flex-wrap md:flex-nowrap bg-white p-5 rounded-md min-h-[65vh]">
+    <div className="product-wrapper flex justify-center md:justify-between items-center gap-10 flex-wrap md:flex-nowrap bg-white p-5 rounded-md min-h-[65vh]">
       <div className="w-full px-20 md:px-0 md:basis-1/3 flex-center">
         <img src={productData.image} alt={productData.title} />
       </div>
@@ -25,7 +27,7 @@ const ProductInfo = ({ productData }) => {
           text={"Add to cart"}
           onClick={() => console.log("Adding to cart")}
           className={
-            "bg-green-450 hover:bg-green-550 text-white border-2 border-green-700"
+            "back-btn bg-green-450 hover:bg-green-550 text-white border-2 border-green-700"
           }
         />
       </div>

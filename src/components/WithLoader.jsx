@@ -1,4 +1,4 @@
-import Header from "./ui/Header";
+import Navbar from "./ui/Navbar";
 import Spinner from "./ui/Spinner";
 
 const WithLoader = ({ isLoading, children, addHeader = false }) => {
@@ -10,7 +10,7 @@ const WithLoader = ({ isLoading, children, addHeader = false }) => {
     );
   return (
     <div className="min-h-screen">
-      {addHeader && <Header />}
+      {addHeader && <Navbar />}
       {children}
     </div>
   );

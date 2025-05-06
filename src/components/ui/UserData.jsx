@@ -1,4 +1,4 @@
-import { formatString } from "../../constants";
+import { formatString } from "../../utils";
 import { Address } from "./Address";
 
 const UserData = ({ userData }) => {

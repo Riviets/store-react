@@ -1,4 +1,4 @@
-import Button from "./Button";
+import Button from "./buttons/Button";
 import { starIcon } from "../../assets/icons/star";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";

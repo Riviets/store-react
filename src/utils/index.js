@@ -1,6 +1,6 @@
-export const formatTitle = (str) => {
-  if (str.length < 25) return str;
-  return str.slice(0, 25) + "...";
+export const formatTitle = (str, symbols = 25) => {
+  if (str.length < Number(symbols)) return str;
+  return str.slice(0, Number(symbols)) + "...";
 };
 
 export const formatString = (str) => {

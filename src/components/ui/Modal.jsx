@@ -1,5 +1,4 @@
-import React from "react";
-import Button from "./Button";
+import Button from "./buttons/Button";
 import { closeIcon } from "../../assets/icons/close";
 
 const Modal = ({
@@ -11,7 +10,7 @@ const Modal = ({
 }) => {
   return (
     <div
-      className="flex-center absolute inset-0"
+      className="flex-center fixed inset-0"
       style={{ backgroundColor: "rgba(0,0,0,0.5)" }}
     >
       <div className="bg-white px-7 py-10 rounded-md shadow-lg relative w-full max-w-[20vw] flex flex-col gap-8">

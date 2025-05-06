@@ -1,4 +1,4 @@
-import { useQuery, useQueryClient } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 import ProductCard from "../components/ui/ProductCard";
 import { productsService } from "../services/api/productService";
 import WithLoader from "../components/WithLoader";

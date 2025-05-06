@@ -12,6 +12,5 @@ export const authService = {
   logout: () => {
     localStorage.removeItem("accessToken");
     localStorage.removeItem("userId");
-    window.location.reload();
   },
 };

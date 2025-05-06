@@ -10,7 +10,7 @@ const ProductCard = ({ product }) => {
         <img src={product.image} alt={product.title} className="size-40" />
       </div>
       <div className="flex flex-col justify-between gap-2 p-5">
-        <h3 className="font-bold text-xl">{formatTitle(product.title)}</h3>
+        <h3 className="font-bold text-xl">{formatTitle(product.title, 25)}</h3>
         <p className="mb-auto">{product.category}</p>
         <p className="font-semibold text-xl">${product.price}</p>
       </div>

@@ -20,7 +20,7 @@ const Navbar = () => {
           {navbarItems.map((item) => (
             <div key={item.text} className="navbar-link inline-block group">
               <Link to={item.path}>{item.text}</Link>
-              <div className="underline" />
+              <div className="underlined" />
             </div>
           ))}
         </div>

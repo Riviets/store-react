@@ -47,7 +47,10 @@ body {
   .navbar-link {
     @apply text-white-50 hover:text-white font-thin tracking-wider text-lg md:text-2xl transition-all duration-300 relative;
   }
-  .underline {
+  .underlined {
     @apply w-0 h-0.5 bg-white absolute -bottom-2 transition-all duration-300 group-hover:w-full;
+  }
+  .cart-item {
+    @apply bg-white rounded-sm py-2 md:py-5 px-7 md:px-10 font-medium text-lg md:text-xl flex gap-4 items-center flex-wrap justify-between;
   }
 }

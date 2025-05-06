@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-import Button from "./Button";
+import Button from "./buttons/Button";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { useEffect, useState } from "react";
@@ -65,8 +65,7 @@ const LoginForm = () => {
         <input
           {...register("username")}
           type="text"
-          placeholder="Username"
-          value={"johnd"}
+          placeholder={"johnd"}
           className="input"
         />
         <p className="error-message">{errors.username?.message}</p>
@@ -76,8 +75,7 @@ const LoginForm = () => {
           <input
             {...register("password")}
             type={`${isPasswordVisible ? "text" : "password"}`}
-            placeholder="Password"
-            value={"m38rmF$"}
+            placeholder={"m38rmF$"}
             className="input"
           />
           <div

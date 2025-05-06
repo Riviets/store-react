@@ -3,7 +3,8 @@ import { useNavigate, useParams } from "react-router-dom";
 import { productsService } from "../services/api/productService";
 import WithLoader from "../components/WithLoader";
 import ProductInfo from "../components/ui/ProductInfo";
-import Button from "../components/ui/Button";
+import Button from "../components/ui/buttons/Button";
+
 const ProductPage = () => {
   const params = useParams();
   const { productId } = params;

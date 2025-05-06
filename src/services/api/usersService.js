@@ -9,4 +9,10 @@ export const usersService = {
     const response = await apiClient.get(`/users/${userId}`);
     return response.data;
   },
+  getUserCart: async (userId) => {
+    const response = await apiClient.get(
+      `https://fakestoreapi.com/carts/${userId}`
+    );
+    return response.data;
+  },
 };

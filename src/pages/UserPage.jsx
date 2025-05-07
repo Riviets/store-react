@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import Button from "../components/ui/buttons/Button";
-import WithLoader from "../components/WithLoader";
+import LayoutLoader from "../components/LayoutLoader";
 import { useQuery } from "@tanstack/react-query";
 import { usersService } from "../services/api/usersService";
 import UserData from "../components/ui/UserData";
@@ -35,7 +35,11 @@ const UserPage = () => {
   if (cartFetchError) throw cartFetchError;
 
   return (
-    <WithLoader isLoading={userLoading || cartLoading} addHeader={true}>
+    <LayoutLoader
+      isLoading={userLoading || cartLoading}
+      addHeader={true}
+      addFooter={true}
+    >
       <section className="container section-padding">
         <Button
           text={"Go to shop"}
@@ -48,7 +52,7 @@ const UserPage = () => {
           <UserCart cart={userCart} />
         </div>
       </section>
-    </WithLoader>
+    </LayoutLoader>
   );
 };
 

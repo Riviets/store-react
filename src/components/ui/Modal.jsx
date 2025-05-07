@@ -7,7 +7,7 @@ const Modal = ({
   onConfirm,
   confirmText = "Yes",
   cancelText = "No",
-  showCancelText = false,
+  showCancelButton = false,
 }) => {
   return (
     <div
@@ -24,7 +24,7 @@ const Modal = ({
               className={"button-hover"}
             />
           )}
-          {showCancelText && (
+          {showCancelButton && (
             <Button
               text={cancelText}
               onClick={onClose}

@@ -29,6 +29,7 @@ const LogoutButton = ({ className }) => {
             setModalVisible(false);
           }}
           onConfirm={handleLogout}
+          showCancelButton={true}
         />
       )}
     </>

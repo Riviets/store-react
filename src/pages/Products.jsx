@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import ProductCard from "../components/ui/ProductCard";
 import { productsService } from "../services/api/productService";
-import WithLoader from "../components/WithLoader";
+import LayoutLoader from "../components/LayoutLoader";
 import AnimatedTitle from "../components/ui/AnimatedTitle";
 
 const Products = () => {
@@ -19,7 +19,7 @@ const Products = () => {
   }
 
   return (
-    <WithLoader isLoading={isLoading} addHeader={true}>
+    <LayoutLoader isLoading={isLoading} addHeader={true} addFooter={true}>
       <section className="container section-padding">
         <AnimatedTitle className={"mb-10 md:mb-20"}>Products</AnimatedTitle>
         <div className="products-list grid-3-cols">
@@ -28,7 +28,7 @@ const Products = () => {
           ))}
         </div>
       </section>
-    </WithLoader>
+    </LayoutLoader>
   );
 };
 

@@ -1,9 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
 import { useNavigate, useParams } from "react-router-dom";
 import { productsService } from "../services/api/productService";
-import WithLoader from "../components/WithLoader";
 import ProductInfo from "../components/ui/ProductInfo";
 import Button from "../components/ui/buttons/Button";
+import LayoutLoader from "../components/LayoutLoader";
 
 const ProductPage = () => {
   const params = useParams();
@@ -16,7 +16,7 @@ const ProductPage = () => {
   });
 
   return (
-    <WithLoader isLoading={isLoading} addHeader={true}>
+    <LayoutLoader isLoading={isLoading} addHeader={true} addFooter={true}>
       <section className="container section-padding">
         <Button
           text={"Go to shop"}
@@ -25,7 +25,7 @@ const ProductPage = () => {
         />
         <ProductInfo productData={productData} />
       </section>
-    </WithLoader>
+    </LayoutLoader>
   );
 };
 

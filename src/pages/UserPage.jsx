@@ -35,9 +35,7 @@ const UserPage = () => {
         <div className="flex flex-col gap-8 md:gap-12">
           <AnimatedTitle>Profile</AnimatedTitle>
           <UserData userData={currentUser} />
-          <AnimatedTitle>Cart</AnimatedTitle>
           <UserCart cart={userCart} />
-          <LogoutButton className={"self-start"} />
         </div>
       </section>
     </WithLoader>

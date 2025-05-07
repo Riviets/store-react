@@ -20,7 +20,7 @@ const LogoutButton = ({ className }) => {
         onClick={() => {
           setModalVisible(true);
         }}
-        className={`text-white-50 border-red-800 border-2 bg-red-600 hover:bg-red-700 transition-all duration-300 ${className}`}
+        className={`text-white-50 border-red-700 border-2 bg-red-600 hover:bg-red-700 transition-all duration-300 ${className}`}
       />
       {modalVisible && (
         <Modal

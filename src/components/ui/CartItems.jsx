@@ -1,10 +1,16 @@
 import { formatTitle } from "../../utils";
+import { Link } from "react-router-dom";
 
 const CartItems = ({ items }) => {
   return (
     <>
       {items.map((item) => (
-        <div key={item.id} className="cart-item">
+        <a
+          href={`/product-page/${item.id}`}
+          target="_blank"
+          key={item.id}
+          className="cart-item hover:-translate-y-1 transition-all duration-300"
+        >
           <p>{formatTitle(item.title, 55)}</p>
           <div className="flex justify-between w-32 md:w-64 font-bold">
             <p>
@@ -13,7 +19,7 @@ const CartItems = ({ items }) => {
             </p>
             <p>${item.quantity * item.price}</p>
           </div>
-        </div>
+        </a>
       ))}
     </>
   );

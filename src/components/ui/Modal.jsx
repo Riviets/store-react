@@ -7,6 +7,7 @@ const Modal = ({
   onConfirm,
   confirmText = "Yes",
   cancelText = "No",
+  showCancelText = false,
 }) => {
   return (
     <div
@@ -15,20 +16,22 @@ const Modal = ({
     >
       <div className="bg-white px-7 py-10 rounded-md shadow-lg relative w-full max-w-[20vw] flex flex-col gap-8">
         <p className="text-xl font-semibold text-center">{text}</p>
-        {onConfirm && (
-          <div className="flex justify-around">
+        <div className="flex justify-around">
+          {onConfirm && (
             <Button
               text={confirmText}
               onClick={onConfirm}
               className={"button-hover"}
             />
+          )}
+          {showCancelText && (
             <Button
               text={cancelText}
               onClick={onClose}
               className={"button-hover"}
             />
-          </div>
-        )}
+          )}
+        </div>
         <button
           onClick={onClose}
           className="absolute top-5 right-5 cursor-pointer"

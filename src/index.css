@@ -24,7 +24,7 @@ body {
     @apply grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5;
   }
   .input {
-    @apply border-1 rounded-md px-5 py-2 text-sm md:text-lg;
+    @apply border-1 rounded-md px-5 py-2 text-sm md:text-lg w-full;
   }
   .input:focus {
     @apply outline-2;

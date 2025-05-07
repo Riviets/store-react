@@ -6,7 +6,6 @@ import { usersService } from "../services/api/usersService";
 import UserData from "../components/ui/UserData";
 import UserCart from "../components/ui/UserCart";
 import AnimatedTitle from "../components/ui/AnimatedTitle";
-import LogoutButton from "../components/ui/buttons/LogoutButton";
 
 const UserPage = () => {
   const navigate = useNavigate();
@@ -15,22 +14,33 @@ const UserPage = () => {
     navigate("/login");
     return null;
   }
-  const { data: currentUser, isLoading: userLoading } = useQuery({
+  const {
+    data: currentUser,
+    isLoading: userLoading,
+    error: userFetchError,
+  } = useQuery({
     queryFn: () => usersService.getUserById(userId),
     queryKey: ["currentUser", userId],
   });
-  const { data: userCart, isLoading: cartLoading } = useQuery({
+  const {
+    data: userCart,
+    isLoading: cartLoading,
+    error: cartFetchError,
+  } = useQuery({
     queryFn: () => usersService.getUserCart(userId),
     queryKey: ["currentUserCart"],
   });
+
+  if (userFetchError) throw userFetchError;
+  if (cartFetchError) throw cartFetchError;
 
   return (
     <WithLoader isLoading={userLoading || cartLoading} addHeader={true}>
       <section className="container section-padding">
         <Button
-          text={"Back"}
+          text={"Go to shop"}
           className={"button-hover bg-white-50 mb-5 md:mb-10"}
-          onClick={() => navigate(-1)}
+          onClick={() => navigate("/shop")}
         />
         <div className="flex flex-col gap-8 md:gap-12">
           <AnimatedTitle>Profile</AnimatedTitle>

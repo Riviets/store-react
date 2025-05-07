@@ -9,11 +9,7 @@ import { useQuery } from "@tanstack/react-query";
 import { usersService } from "../../services/api/usersService";
 import { eyeClosedIcon } from "../../assets/icons/eyeClosed";
 import { eyeIcon } from "../../assets/icons/eyeIcon";
-
-const validationSchema = z.object({
-  username: z.string().min(4).max(16),
-  password: z.string().min(4).max(16),
-});
+import { loginSchema } from "../../zod/schemas/loginSchema";
 
 const LoginForm = () => {
   const {
@@ -21,12 +17,16 @@ const LoginForm = () => {
     handleSubmit,
     setFocus,
     formState: { errors, isSubmitting },
-  } = useForm({ resolver: zodResolver(validationSchema) });
+  } = useForm({ resolver: zodResolver(loginSchema) });
 
-  const { data: users, isLoading } = useQuery({
+  const { data: users, error: usersFetchError } = useQuery({
     queryKey: ["users"],
     queryFn: usersService.getAllUsers,
   });
+
+  if (usersFetchError) {
+    throw usersFetchError;
+  }
 
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
   const [isAuthError, setIsAuthError] = useState(false);

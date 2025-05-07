@@ -18,6 +18,11 @@ const ProductPage = () => {
   return (
     <WithLoader isLoading={isLoading} addHeader={true}>
       <section className="container section-padding">
+        <Button
+          text={"Go to shop"}
+          className={"button-hover bg-white-50 mb-5 md:mb-10"}
+          onClick={() => navigate("/shop")}
+        />
         <ProductInfo productData={productData} />
       </section>
     </WithLoader>

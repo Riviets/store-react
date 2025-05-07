@@ -6,10 +6,19 @@ import AnimatedTitle from "./AnimatedTitle";
 import { cartIcon } from "../../assets/icons/cart";
 
 const UserCart = ({ cart }) => {
-  const { data: products, isLoading } = useQuery({
+  const {
+    data: products,
+    isLoading,
+    error: productsFetchError,
+  } = useQuery({
     queryKey: ["products"],
     queryFn: productsService.getAllProducts,
   });
+
+  if (productsFetchError) {
+    throw productsFetchError;
+  }
+
   const [cartItems, setCartItems] = useState([]);
 
   useEffect(() => {

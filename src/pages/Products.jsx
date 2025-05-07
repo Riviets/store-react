@@ -5,10 +5,18 @@ import WithLoader from "../components/WithLoader";
 import AnimatedTitle from "../components/ui/AnimatedTitle";
 
 const Products = () => {
-  const { data: products, isLoading } = useQuery({
+  const {
+    data: products,
+    isLoading,
+    error: productsFetchError,
+  } = useQuery({
     queryKey: ["products"],
     queryFn: productsService.getAllProducts,
   });
+
+  if (productsFetchError) {
+    throw productsFetchError;
+  }
 
   return (
     <WithLoader isLoading={isLoading} addHeader={true}>

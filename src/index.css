@@ -36,7 +36,7 @@ body {
     @apply hover:bg-zinc-700 hover:text-white;
   }
   .navbar {
-    @apply fixed top-0 left-0 right-0 z-10  transition-all duration-300 ease-in-out;
+    @apply fixed top-0 left-0 right-0 z-20  transition-all duration-300 ease-in-out;
     &.scrolled {
       @apply bg-zinc-950 py-4 md:py-6;
     }
@@ -54,9 +54,12 @@ body {
     @apply bg-zinc-600 border-2 border-zinc-800 text-white shadow-md rounded-sm py-2 md:py-5 px-7 md:px-10 font-medium text-lg md:text-xl flex gap-4 items-center flex-wrap justify-between;
   }
   .hero-title {
-    @apply text-6xl font-bold max-w-[650px] leading-snug mb-5;
+    @apply text-3xl sm:text-6xl font-bold max-w-[650px] leading-snug mb-5;
   }
   .hero-subtitle {
-    @apply text-xl max-w-[550px] mb-10 text-white-50;
+    @apply md:text-xl max-w-[550px] mb-10 text-white-50;
+  }
+  .features-item {
+    @apply w-[320px] flex flex-col items-center bg-white rounded-sm hover:scale-103 transition-all duration-300;
   }
 }

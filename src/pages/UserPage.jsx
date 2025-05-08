@@ -6,6 +6,8 @@ import { usersService } from "../services/api/usersService";
 import UserData from "../components/ui/UserData";
 import UserCart from "../components/ui/UserCart";
 import AnimatedTitle from "../components/ui/AnimatedTitle";
+import AnimatedButton from "../components/ui/buttons/AnimatedButton";
+import { backIcon } from "../assets/icons/back";
 
 const UserPage = () => {
   const navigate = useNavigate();
@@ -41,9 +43,10 @@ const UserPage = () => {
       addFooter={true}
     >
       <section className="container section-padding">
-        <Button
+        <AnimatedButton
+          icon={backIcon}
           text={"Go to shop"}
-          className={"button-hover bg-white-50 mb-5 md:mb-10"}
+          className={"bg-white mb-5 md:mb-10"}
           onClick={() => navigate("/shop")}
         />
         <div className="flex flex-col gap-8 md:gap-12">

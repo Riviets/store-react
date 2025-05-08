@@ -22,7 +22,9 @@ const ProductInfo = ({ productData }) => {
           </p>
         </div>
         <p className="text-sm md:text-md">{productData.description}</p>
-        <p className="font-bold text-2xl md:text-4xl">${productData.price}</p>
+        <p className="font-bold text-2xl md:text-4xl mb-5">
+          ${productData.price}
+        </p>
         <Button
           text={"Add to cart"}
           onClick={() => console.log("Adding to cart")}

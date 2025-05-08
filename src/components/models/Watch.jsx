@@ -6,7 +6,7 @@ export function Watch(props) {
   const { nodes, materials } = useGLTF("/models/wrist_watch.glb");
   const modelRef = useRef();
   useFrame(() => {
-    modelRef.current.rotation.y -= 0.004;
+    modelRef.current.rotation.y -= 0.003;
   });
   return (
     <group

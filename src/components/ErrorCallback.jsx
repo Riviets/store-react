@@ -10,9 +10,7 @@ const ErrorCallback = () => {
       text="Something went wrong. The server might be temporarily unavailable due to high load on the free public API. Please try again in a few seconds."
       onClose={reload}
       confirmText="Reload"
-      onConfirm={() => {
-        reload;
-      }}
+      onConfirm={reload}
     />
   );
 };

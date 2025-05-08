@@ -14,8 +14,8 @@ const Modal = ({
       className="flex-center fixed inset-0"
       style={{ backgroundColor: "rgba(0,0,0,0.5)" }}
     >
-      <div className="bg-white px-7 py-10 rounded-md shadow-lg relative w-full max-w-[20vw] flex flex-col gap-8">
-        <p className="text-xl font-semibold text-center">{text}</p>
+      <div className="bg-white px-7 py-10 rounded-md shadow-lg relative w-full max-w-[70vw] md:max-w-[30vw] flex flex-col gap-8">
+        <p className="md:text-xl font-semibold text-center">{text}</p>
         <div className="flex justify-around">
           {onConfirm && (
             <Button

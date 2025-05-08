@@ -2,8 +2,9 @@ import { useQuery } from "@tanstack/react-query";
 import { useNavigate, useParams } from "react-router-dom";
 import { productsService } from "../services/api/productService";
 import ProductInfo from "../components/ui/ProductInfo";
-import Button from "../components/ui/buttons/Button";
 import LayoutLoader from "../components/LayoutLoader";
+import AnimatedButton from "../components/ui/buttons/AnimatedButton";
+import { backIcon } from "../assets/icons/back";
 
 const ProductPage = () => {
   const params = useParams();
@@ -18,9 +19,10 @@ const ProductPage = () => {
   return (
     <LayoutLoader isLoading={isLoading} addHeader={true} addFooter={true}>
       <section className="container section-padding">
-        <Button
+        <AnimatedButton
           text={"Go to shop"}
-          className={"button-hover bg-white-50 mb-5 md:mb-10"}
+          icon={backIcon}
+          className={"bg-white mb-5 md:mb-10"}
           onClick={() => navigate("/shop")}
         />
         <ProductInfo productData={productData} />

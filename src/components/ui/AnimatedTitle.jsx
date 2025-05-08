@@ -22,7 +22,7 @@ const AnimatedTitle = ({ children, className }) => {
   return (
     <div
       ref={titleRef}
-      className={`text-white-50 text-3xl md:text-5xl font-semibold tracking-wider flex justify-center gap-5 items-center ${className}`}
+      className={`text-white text-3xl md:text-5xl font-semibold tracking-wider flex justify-center gap-5 items-center ${className}`}
     >
       {children}
     </div>

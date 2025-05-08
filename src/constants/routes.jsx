@@ -6,6 +6,7 @@ import UserPage from "../pages/UserPage";
 import NotFound from "../pages/NotFound";
 import Products from "../pages/Products";
 import ErrorCallback from "../components/ErrorCallback";
+import AboutPage from "../pages/AboutPage";
 
 export const router = createBrowserRouter([
   {
@@ -16,7 +17,7 @@ export const router = createBrowserRouter([
         index: true,
         element: (
           <ProtectedRoute>
-            <Products />
+            <AboutPage />
           </ProtectedRoute>
         ),
       },
@@ -43,6 +44,10 @@ export const router = createBrowserRouter([
       {
         path: "profile",
         element: <UserPage />,
+      },
+      {
+        path: "about",
+        element: <AboutPage />,
       },
       {
         path: "*",

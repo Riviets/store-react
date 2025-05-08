@@ -4,6 +4,7 @@ import { featuresItems } from "../../constants";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import FeaturesItem from "../ui/FeaturesItem";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -35,19 +36,7 @@ const Features = () => {
         <AnimatedTitle className={"mb-20"}>Let's Find Your Style</AnimatedTitle>
         <div className="features-wrapper flex flex-wrap gap-5 justify-center pb-20">
           {featuresItems.map((item) => (
-            <div
-              key={item.text}
-              className="features-item bg-white shadow-md rounded-sm"
-            >
-              <img
-                src={item.image}
-                alt={item.text}
-                className="rounded-t-sm w-full"
-              />
-              <p className="px-8 py-6 cursor-default text-lg font-medium">
-                {item.text}
-              </p>
-            </div>
+            <FeaturesItem item={item} />
           ))}
         </div>
       </div>

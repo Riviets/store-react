@@ -1,20 +1,18 @@
 import Button from "./buttons/Button";
 import { starIcon } from "../../assets/icons/star";
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
 
 const ProductInfo = ({ productData }) => {
   return (
-    <div className="product-wrapper flex justify-center md:justify-between items-center gap-10 flex-wrap md:flex-nowrap bg-white p-5 rounded-md min-h-[65vh]">
-      <div className="w-full px-20 md:px-0 md:basis-1/3 flex-center">
+    <div className="product-wrapper flex justify-center md:justify-between items-center gap-10 flex-wrap md:flex-nowrap bg-white p-5 rounded-sm min-h-[65vh]">
+      <div className="w-[80%] md:w-full px-5 md:basis-1/3 flex-center">
         <img src={productData.image} alt={productData.title} />
       </div>
       <div className="flex flex-col gap-4 basis-2/3">
-        <p className="font-semibold text-3xl md:text-5xl">
+        <p className="font-semibold  text-xl md:text-3xl lg:text-5xl">
           {productData.title}
         </p>
-        <div className="flex gap-3 md:gap-5 items-center">
-          <p className="text-lg md:text-xl font-semibold border-1 rounded-md px-5 py-1">
+        <div className="flex gap-3 md:gap-5 items-center flex-wrap">
+          <p className="md:text-xl font-semibold border-1 rounded-md px-5 py-1">
             {productData.category}
           </p>
           <p className="flex">

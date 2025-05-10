@@ -1,20 +1,14 @@
 import React, { useEffect } from "react";
 import AnimatedTitle from "../AnimatedTitle";
 import { useForm } from "react-hook-form";
-import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Spinner from "../Spinner";
-import { useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { usersService } from "../../../services/api/usersService";
 import PasswordInput from "../inputs/PasswordInput";
 import Button from "../buttons/Button";
 import { useEditModalContext } from "../../../context/EditModalContext";
-
-const editUserSchema = z.object({
-  username: z.string().min(4).max(12),
-  email: z.string().email(),
-  password: z.string().min(6).max(12),
-});
+import { editUserSchema } from "../../../zod/schemas/editUserSchema";
 
 const EditProfileForm = () => {
   const { setEditModalVisible } = useEditModalContext();
@@ -29,9 +23,18 @@ const EditProfileForm = () => {
 
   const userId = localStorage.getItem("userId");
 
+  const queryClient = useQueryClient();
+
   const { data: currentUser, isLoading } = useQuery({
     queryFn: () => usersService.getUserById(userId),
     queryKey: ["currentUser", userId],
+  });
+
+  const updateUserMutation = useMutation({
+    mutationFn: (data) => usersService.updateUserData(userId, data),
+    onSuccess: () => {
+      queryClient.invalidateQueries(["currentUser", userId]);
+    },
   });
 
   useEffect(() => {
@@ -53,14 +56,12 @@ const EditProfileForm = () => {
   };
 
   const handleConfirm = handleSubmit((data) => {
-    // Тут ваша логіка для оновлення даних користувача
-    console.log("Оновлені дані:", data);
-    // Після успішного оновлення закриваємо модальне вікно
+    updateUserMutation.mutate(data);
     setEditModalVisible(false);
   });
 
   return (
-    <div className="bg-white max-w-[80vw] md:max-w-[35vw] p-8 rounded-md shadow-md relative">
+    <div className="bg-white w-full max-w-[80vw] md:max-w-[35vw] p-8 rounded-md shadow-md relative">
       <AnimatedTitle className="text-zinc-900 text-lg md:text-xl mb-5">
         Edit Profile
       </AnimatedTitle>
@@ -69,9 +70,15 @@ const EditProfileForm = () => {
         <Spinner />
       ) : (
         <>
-          <form className="space-y-8" onSubmit={handleConfirm}>
-            <input {...register("username")} type="text" className="input" />
-            <input {...register("email")} type="text" className="input" />
+          <form className="space-y-4" onSubmit={handleConfirm}>
+            <div className="space-y-2">
+              <input {...register("username")} type="text" className="input" />
+              <p className="error-message">{errors.username?.message}</p>
+            </div>
+            <div className="space-y-2">
+              <input {...register("email")} type="text" className="input" />
+              <p className="error-message">{errors.email?.message}</p>
+            </div>
             <PasswordInput
               register={register}
               name="password"

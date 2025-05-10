@@ -6,8 +6,6 @@ import { authService } from "../../services/api/authService";
 import { useNavigate } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { usersService } from "../../services/api/usersService";
-import { eyeClosedIcon } from "../../assets/icons/eyeClosed";
-import { eyeIcon } from "../../assets/icons/eyeIcon";
 import { loginSchema } from "../../zod/schemas/loginSchema";
 import PasswordInput from "./inputs/PasswordInput";
 
@@ -27,7 +25,6 @@ const LoginForm = () => {
     throw usersFetchError;
   }
 
-  const [isPasswordVisible, setIsPasswordVisible] = useState(false);
   const [isAuthError, setIsAuthError] = useState(false);
   const navigate = useNavigate();
 

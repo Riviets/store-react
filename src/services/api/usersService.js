@@ -10,9 +10,14 @@ export const usersService = {
     return response.data;
   },
   getUserCart: async (userId) => {
-    const response = await apiClient.get(
-      `https://fakestoreapi.com/carts/${userId}`
-    );
+    const response = await apiClient.get(`/carts/${userId}`);
+    return response.data;
+  },
+  updateUserData: async (userId, userData) => {
+    const response = await apiClient.put(`/users/${userId}`, {
+      id: Number(userId),
+      ...userData,
+    });
     return response.data;
   },
 };

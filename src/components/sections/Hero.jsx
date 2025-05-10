@@ -1,4 +1,4 @@
-import HeroScene from "../HeroScene";
+import HeroScene from "../scenes/HeroScene/HeroScene";
 import AnimatedButton from "../ui/buttons/AnimatedButton";
 import { useNavigate } from "react-router-dom";
 import { shoppingCart } from "../../assets/icons/shopping";

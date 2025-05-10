@@ -1,7 +1,7 @@
 import Button from "./buttons/Button";
 import { closeIcon } from "../../assets/icons/close";
 
-const Modal = ({
+const ConfirmModal = ({
   text,
   onClose,
   onConfirm,
@@ -10,10 +10,7 @@ const Modal = ({
   showCancelButton = false,
 }) => {
   return (
-    <div
-      className="flex-center fixed inset-0"
-      style={{ backgroundColor: "rgba(0,0,0,0.5)" }}
-    >
+    <div className="flex-center fixed inset-0 z-20 bg-[rgba(0,0,0,0.5)]">
       <div className="bg-white px-7 py-10 rounded-md shadow-lg relative w-full max-w-[70vw] md:max-w-[30vw] flex flex-col gap-8">
         <p className="md:text-xl font-semibold text-center">{text}</p>
         <div className="flex justify-around">
@@ -43,4 +40,4 @@ const Modal = ({
   );
 };
 
-export default Modal;
+export default ConfirmModal;

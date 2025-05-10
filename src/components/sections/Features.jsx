@@ -20,7 +20,7 @@ const Features = () => {
         opacity: 1,
         y: 0,
         stagger: 0.2,
-        duration: 0.7,
+        duration: 0.4,
         ease: "power2.inOut",
         scrollTrigger: {
           trigger: ".features-wrapper",
@@ -36,7 +36,7 @@ const Features = () => {
         <AnimatedTitle className={"mb-20"}>Let's Find Your Style</AnimatedTitle>
         <div className="features-wrapper flex flex-wrap gap-5 justify-center pb-20">
           {featuresItems.map((item) => (
-            <FeaturesItem item={item} />
+            <FeaturesItem item={item} key={item.text} />
           ))}
         </div>
       </div>

@@ -1,7 +1,8 @@
 import { profileIcon } from "../../assets/icons/profile";
 import { formatString } from "../../utils";
-import { Address } from "./Address";
+import { Address } from "./profile/Address";
 import LogoutButton from "./buttons/LogoutButton";
+import EditProfile from "./profile/EditProfile";
 
 const UserData = ({ userData }) => {
   return (
@@ -18,6 +19,7 @@ const UserData = ({ userData }) => {
               {userData.email}
             </p>
           </div>
+          <EditProfile />
         </div>
         <Address address={userData.address} />
       </div>

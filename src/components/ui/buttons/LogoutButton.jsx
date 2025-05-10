@@ -1,5 +1,5 @@
 import Button from "./Button";
-import Modal from "../Modal";
+import ConfirmModal from "../ConfirmModal";
 import { useState } from "react";
 import { authService } from "../../../services/api/authService";
 import { useNavigate } from "react-router-dom";
@@ -23,7 +23,7 @@ const LogoutButton = ({ className }) => {
         className={`text-white-50 border-red-700 border-2 bg-red-600 hover:bg-red-700 transition-all duration-300 ${className}`}
       />
       {modalVisible && (
-        <Modal
+        <ConfirmModal
           text={"Are you sure you want to logout?"}
           onClose={() => {
             setModalVisible(false);

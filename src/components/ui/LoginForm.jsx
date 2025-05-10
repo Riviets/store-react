@@ -1,8 +1,7 @@
 import { useForm } from "react-hook-form";
 import Button from "./buttons/Button";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { authService } from "../../services/api/authService";
 import { useNavigate } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
@@ -10,12 +9,12 @@ import { usersService } from "../../services/api/usersService";
 import { eyeClosedIcon } from "../../assets/icons/eyeClosed";
 import { eyeIcon } from "../../assets/icons/eyeIcon";
 import { loginSchema } from "../../zod/schemas/loginSchema";
+import PasswordInput from "./inputs/PasswordInput";
 
 const LoginForm = () => {
   const {
     register,
     handleSubmit,
-    setFocus,
     formState: { errors, isSubmitting },
   } = useForm({ resolver: zodResolver(loginSchema) });
 
@@ -32,10 +31,6 @@ const LoginForm = () => {
   const [isAuthError, setIsAuthError] = useState(false);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    setFocus("username");
-  }, []);
-
   const authenticateUser = async (userData) => {
     try {
       setIsAuthError(false);
@@ -46,7 +41,7 @@ const LoginForm = () => {
       const userId = currentUser[0].id;
       localStorage.setItem("accessToken", token);
       localStorage.setItem("userId", userId);
-      navigate("/");
+      navigate("/shop");
     } catch (error) {
       setIsAuthError(true);
     }
@@ -65,32 +60,17 @@ const LoginForm = () => {
         <input
           {...register("username")}
           type="text"
-          placeholder={"johnd"}
+          placeholder={"donero"}
           className="input"
         />
         <p className="error-message">{errors.username?.message}</p>
       </div>
-      <div className="space-y-2">
-        <div className="relative">
-          <input
-            {...register("password")}
-            type={`${isPasswordVisible ? "text" : "password"}`}
-            placeholder={"m38rmF$"}
-            className="input"
-          />
-          <div
-            onClick={() => {
-              setIsPasswordVisible(!isPasswordVisible);
-            }}
-            className="absolute top-0 bottom-0 right-0 px-4 flex-center cursor-pointer"
-          >
-            {isPasswordVisible ? eyeIcon : eyeClosedIcon}
-          </div>
-        </div>
-        <p className="error-message">
-          {errors.password?.message || (isAuthError && "Login failed")}
-        </p>
-      </div>
+      <PasswordInput
+        register={register}
+        name="password"
+        placeholder="ewedon"
+        error={errors.password?.message || (isAuthError && "Login failed")}
+      />
       <Button
         text={"Submit"}
         type={"submit"}

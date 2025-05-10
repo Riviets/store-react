@@ -5,6 +5,7 @@ import { useRef } from "react";
 export function Watch(props) {
   const { nodes, materials } = useGLTF("/models/wrist_watch.glb");
   const modelRef = useRef();
+
   useFrame(() => {
     modelRef.current.rotation.y -= 0.003;
   });

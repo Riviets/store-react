@@ -24,7 +24,7 @@ body {
     @apply grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5;
   }
   .input {
-    @apply border-1 rounded-md px-5 py-2 text-sm md:text-lg w-full;
+    @apply border-1 rounded-md px-5 py-2 text-sm md:text-base w-full placeholder-gray-400;
   }
   .input:focus {
     @apply outline-2;
@@ -36,7 +36,7 @@ body {
     @apply hover:bg-zinc-700 hover:text-white;
   }
   .navbar {
-    @apply fixed top-0 left-0 right-0 z-20  transition-all duration-300 ease-in-out;
+    @apply fixed top-0 left-0 right-0 z-20  transition-all duration-300 ease-in-out z-30;
     &.scrolled {
       @apply bg-zinc-950 py-4 md:py-6;
     }
@@ -60,6 +60,6 @@ body {
     @apply md:text-xl max-w-[550px] mb-10 text-white-50;
   }
   .features-item {
-    @apply w-[320px] flex flex-col items-center bg-white rounded-sm hover:scale-103 transition-all duration-300;
+    @apply w-[320px] flex flex-col items-center bg-white rounded-sm transition-all duration-300;
   }
 }

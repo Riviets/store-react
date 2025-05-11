@@ -1,12 +1,13 @@
-# React + Vite
+🛍️ Fake Store — E-commerce Frontend App
+A feature-rich e-commerce frontend application built with React and powered by the Fake Store API.
+The project includes authentication, product browsing, user profile, and a landing section — all implemented using modern tools and best practices.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+⚙️ Features
+- Axios instance & service-based API integration
+- React Query for data fetching, caching, and mutations
+- Authentication with protected routes
+- Forms with React Hook Form and Zod validation
+- State management via React Context
+- 3D scenes and elements via react-three-fiber
+- Smooth animations with GSAP
+- Fully responsive design with Tailwind CSS
